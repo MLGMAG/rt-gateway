@@ -1,0 +1,10 @@
+HELP.md
+/.idea/
+/logs/
+/target/
+/.mvn
+*.iml
+mvnw
+/mvnw.cmd
+/src/test/.idea/
+
