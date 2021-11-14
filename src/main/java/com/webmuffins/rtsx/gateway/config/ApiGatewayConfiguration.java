@@ -15,7 +15,7 @@ public class ApiGatewayConfiguration {
     private String boardService;
 
     @Value("${users-service.name}")
-    private String usersService;
+    private String securityService;
 
     @Value("${chat-service.name}")
     private String chatService;
@@ -28,9 +28,9 @@ public class ApiGatewayConfiguration {
                 .route(boardTicketsSpec -> boardTicketsSpec.path("/tickets/**").uri("lb://" + boardService))
                 .route(boardRowsSpec -> boardRowsSpec.path("/rows/**").uri("lb://" + boardService))
 
-                .route(usersUserSpec -> usersUserSpec.path("/users/**").uri("lb://" + usersService))
-                .route(usersUserSpec -> usersUserSpec.path("/auth/**").uri("lb://" + usersService))
-                .route(usersTeamsSpec -> usersTeamsSpec.path("/teams/**").uri("lb://" + usersService))
+                .route(usersUserSpec -> usersUserSpec.path("/users/**").uri("lb://" + securityService))
+                .route(usersUserSpec -> usersUserSpec.path("/auth/**").uri("lb://" + securityService))
+                .route(usersTeamsSpec -> usersTeamsSpec.path("/teams/**").uri("lb://" + securityService))
 
                 .route(chatMessageSpec -> chatMessageSpec.path("/message/**").uri("lb://" + chatService))
                 .build();
