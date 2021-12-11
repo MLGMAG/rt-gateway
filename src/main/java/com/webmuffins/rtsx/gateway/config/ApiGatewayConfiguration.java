@@ -32,7 +32,7 @@ public class ApiGatewayConfiguration {
                 .route(usersUserSpec -> usersUserSpec.path("/auth/**").uri("lb://" + securityService))
                 .route(usersTeamsSpec -> usersTeamsSpec.path("/teams/**").uri("lb://" + securityService))
 
-                .route(chatMessageSpec -> chatMessageSpec.path("/message/**").uri("lb://" + chatService))
+                .route(chatMessageSpec -> chatMessageSpec.path("/chat-service/**").uri("lb://" + chatService))
                 .build();
     }
 
